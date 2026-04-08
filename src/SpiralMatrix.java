@@ -1,8 +1,58 @@
+ import java.util.*;
 public class SpiralMatrix {
-    
-        // TODO: Read r and c
-        // TODO: Read the matrix elements
-        // TODO: Print the elements in spiral order
-        // Hint: Use 4 pointers: top, bottom, left, right
-    
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int r = sc.nextInt();
+        int c = sc.nextInt();
+
+        int[][] mat = new int[r][c];
+
+        // Input
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                mat[i][j] = sc.nextInt();
+            }
+        }
+
+        int top = 0, bottom = r - 1;
+        int left = 0, right = c - 1;
+
+        StringBuilder sb = new StringBuilder();
+
+        while (top <= bottom && left <= right) {
+
+            
+            for (int j = left; j <= right; j++) {
+                sb.append(mat[top][j]).append(" ");
+            }
+            top++;
+
+           
+            for (int i = top; i <= bottom; i++) {
+                sb.append(mat[i][right]).append(" ");
+            }
+            right--;
+
+         
+            if (top <= bottom) {
+                for (int j = right; j >= left; j--) {
+                    sb.append(mat[bottom][j]).append(" ");
+                }
+                bottom--;
+            }
+
+           
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    sb.append(mat[i][left]).append(" ");
+                }
+                left++;
+            }
+        }
+
+      
+        System.out.println(sb.toString().trim());
+    }
 }

@@ -23,19 +23,19 @@ public class SpiralMatrix {
 
         while (top <= bottom && left <= right) {
 
-            // 1. Left → Right
+            
             for (int j = left; j <= right; j++) {
                 sb.append(mat[top][j]).append(" ");
             }
             top++;
 
-            // 2. Top → Bottom
+           
             for (int i = top; i <= bottom; i++) {
                 sb.append(mat[i][right]).append(" ");
             }
             right--;
 
-            // 3. Right → Left
+         
             if (top <= bottom) {
                 for (int j = right; j >= left; j--) {
                     sb.append(mat[bottom][j]).append(" ");
@@ -43,7 +43,7 @@ public class SpiralMatrix {
                 bottom--;
             }
 
-            // 4. Bottom → Top
+           
             if (left <= right) {
                 for (int i = bottom; i >= top; i--) {
                     sb.append(mat[i][left]).append(" ");
@@ -52,7 +52,7 @@ public class SpiralMatrix {
             }
         }
 
-        // Print without trailing space
+      
         System.out.println(sb.toString().trim());
     }
 }
